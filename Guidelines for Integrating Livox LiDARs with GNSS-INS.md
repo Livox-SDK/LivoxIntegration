@@ -18,16 +18,16 @@ With their high performance, Livox LiDARs can be used in a variety of applicatio
 
 Remarks:
 
-1、The required voltage range for Livox MID-40, Raspberry Pi, and APX-15 are 10~16V, 5V and 8~32V, respectively. DC-DC converters with proper output voltage level are needed in case Vdc is not in the respective range.
- 2、The PPS output of APX-15 is in TTL level, while the PPS input of Livox MID-40 is RS485. A TTL-RS485 Converter is needed to convert the signal level.
- 3、Livox MID-40 transmits point cloud data to Raspberry Pi via Ethernet port.
- 4、APX-15 transmits pose data to Raspberry Pi via RS232 port.
- 5、Raspberry Pi supports SD cards for data storage.
-6、GPS antenna of the APX-15 should be placed at proper locations to avoid interference from other modules.
+1. The required voltage range for Livox MID-40, Raspberry Pi, and APX-15 are 10~16V, 5V and 8~32V, respectively. DC-DC converters with proper output voltage level are needed in case Vdc is not in the respective range.
+2. The PPS output of APX-15 is in TTL level, while the PPS input of Livox MID-40 is RS485. A TTL-RS485 Converter is needed to convert the signal level.
+3. Livox MID-40 transmits point cloud data to Raspberry Pi via Ethernet port.
+4. APX-15 transmits pose data to Raspberry Pi via RS232 port.
+5. Raspberry Pi supports SD cards for data storage.
+6. GPS antenna of the APX-15 should be placed at proper locations to avoid interference from other modules.
 
 # 4. Time Synchronization
 
- Once powered on, APX-15 will sample and process pose (position and attitude) data at a given rate, the data are packed with the GPS time and sent to the Raspberry Pi via the RS232 port. Meanwhile, the APX-15 transmits one pulse per second and the rising edge of each pulse (the rising edge) occurs at every integer seconds (i.e., 1 sec, 2 sec, 3 sec…).
+Once powered on, APX-15 will sample and process pose (position and attitude) data at a given rate, the data are packed with the GPS time and sent to the Raspberry Pi via the RS232 port. Meanwhile, the APX-15 transmits one pulse per second and the rising edge of each pulse (the rising edge) occurs at every integer seconds (i.e., 1 sec, 2 sec, 3 sec…).
 
 A Livox LiDAR sends data packets to Raspberry Pi via the Ethernet port at 1kHz (1000 data packets per second). Each data packet has a timestamp, 100 points data, and status information ([the manual of Livox MID-40](https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/20190129/Livox%20Mid%20Series%20User%20Manual%20EN%2020190129%20v1.0.pdf)). The timestamp indicates the time (in nano-seconds) of the first data point within this packet from the rising edge of the most recent pulse occurs on the LiDAR PPS port. As the LiDAR samples points at a regular time period (10us for MID40 and each of the three units within a MID100), the timestamp for each point within a packet could be inferred from the timestamp of the first point.
 
