@@ -1,2 +1,2 @@
-# LivoxIntergration
-Guidelines for intergrating Livox LiDARs with other sensors. 
+# LivoxIntegration
+Guidelines for integrating Livox LiDARs with other sensors. 
