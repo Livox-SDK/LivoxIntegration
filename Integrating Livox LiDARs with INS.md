@@ -21,7 +21,7 @@ Remarks:
 1. The required voltage range for Livox MID-40, Raspberry Pi, and APX-15 are 10-16V, 5V and 8-32V, respectively. DC-DC converters with proper output voltage level are needed in case Vdc is not in the respective range.
 2. The PPS output of APX-15 is in TTL level, while the PPS input of Livox MID-40 is RS485. A TTL-RS485 Converter is needed to convert the signal level.
 3. Livox MID-40 transmits point cloud data to Raspberry Pi via Ethernet port.
-4. APX-15 transmits pose data to Raspberry Pi via RS232 port.
+4. APX-15 transmits pose and time information(e.g. $GPRMC sentences ) to Raspberry Pi via RS232 port.
 5. Raspberry Pi supports SD cards for data storage.
 6. GPS antenna of the APX-15 should be placed at proper locations to avoid interference from other modules.
 
